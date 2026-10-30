@@ -1,29 +1,315 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#173f35">
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
 <title>말씀일까? — 틀린 구절 찾기</title>
+<meta name="description" content="네 문장 중 성경에 없는 문장 하나를 찾는 5문제 성경 퀴즈. 개역개정 본문 기준.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="말씀일까? — 틀린 구절 찾기">
+<meta property="og:description" content="네 문장 중 성경에 없는 문장은 단 하나. 찾을 수 있나요?">
+<meta property="og:url" content="https://tyranno-rex.github.io/bible-quiz/">
+<meta property="og:image" content="https://tyranno-rex.github.io/bible-quiz/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233b5bfd'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-:root{--g:#173f35;--g2:#2c6551;--cream:#f7f4eb;--paper:#fffdf7;--gold:#d5ad57;--ink:#202a26;--muted:#718078;--line:#e7e1d3;--red:#a84a43}
-*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}button{font:inherit;cursor:pointer}.wrap{width:min(720px,100%);margin:auto;padding:22px 16px 42px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}.brand{font-weight:900;color:var(--g);font-size:20px;letter-spacing:-.04em}.tag{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:7px 11px}.hero{padding:22px 4px 24px}.eyebrow{color:var(--g2);font-size:12px;font-weight:900;letter-spacing:.13em}.hero h1{font-size:clamp(35px,8vw,52px);line-height:1.1;letter-spacing:-.06em;margin:10px 0}.hero p{line-height:1.7;color:#58655e;margin:0}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,5vw,32px);box-shadow:0 12px 35px #21382a0b}.center{text-align:center}.book{font-size:38px;margin-bottom:8px}.panel h2{margin:5px 0 10px;font-size:24px;letter-spacing:-.04em}.muted{color:var(--muted);line-height:1.7}.btn{border:0;border-radius:13px;background:var(--g);color:#fff;font-weight:850;padding:15px 22px;min-height:50px}.btn:hover{background:var(--g2)}.btn.light{background:#e9eee8;color:var(--g)}.meta{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:12px}.bar{height:6px;background:#eae5d9;border-radius:20px;overflow:hidden;margin-bottom:25px}.bar span{height:100%;display:block;background:var(--gold);width:0;transition:width .2s}.q-label{font-size:12px;font-weight:900;color:var(--g2);letter-spacing:.08em;margin-bottom:13px}.q-title{font-size:clamp(22px,5.5vw,29px);line-height:1.5;letter-spacing:-.04em;margin:0 0 9px}.q-sub{font-size:14px;color:var(--muted);margin:0 0 22px}.options{display:grid;gap:10px}.opt{display:flex;align-items:flex-start;gap:12px;text-align:left;border:1.5px solid var(--line);border-radius:13px;background:#fff;padding:15px 14px;color:var(--ink);line-height:1.5}.opt .letter{flex:0 0 28px;height:28px;display:grid;place-items:center;border-radius:8px;background:#f1eee5;font-weight:900;color:var(--g)}.opt:hover{border-color:var(--g2);background:#f7f9f4}.opt.correct{border-color:#36815b;background:#e9f5ed}.opt.wrong{border-color:#c56a5f;background:#fff0ed}.opt:disabled{cursor:default}.feedback{margin-top:17px;border-radius:13px;background:#f2efe6;padding:15px;line-height:1.6}.feedback strong{display:block;margin-bottom:4px}.feedback p{font-size:14px;color:#5d665f;margin:5px 0 0}.nextrow{display:flex;justify-content:flex-end;margin-top:16px}.hide{display:none!important}.result{text-align:center}.bigscore{font-size:65px;font-weight:950;letter-spacing:-.07em;color:var(--g);margin:8px}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:24px 0}.stat{background:#f2efe6;border-radius:13px;padding:15px}.stat b{display:block;color:var(--g);font-size:23px}.stat span{font-size:12px;color:var(--muted)}.note{font-size:12px;line-height:1.7;color:#7b847d;margin:20px 5px 0}.footer{text-align:center;color:#899188;font-size:12px;margin-top:22px}@media(max-width:420px){.wrap{padding:14px 11px 30px}.opt{padding:12px 10px;gap:9px}.opt .letter{flex-basis:26px;height:26px}}
-</style></head><body><div class="wrap">
-<header class="top"><div class="brand">✦ 말씀일까?</div><div class="tag">틀린 구절 찾기</div></header>
-<section class="hero"><div class="eyebrow">BIBLE QUIZ · 4 CHOICES</div><h1>틀린 구절<br>하나를 찾아라.</h1><p>네 문장 중 성경에 실제로 없는 문장은 단 하나!<br>유명한 성경 구절 세 개와 가짜 문장 하나를 골라내 보세요.</p></section>
-<section id="start" class="panel center"><div class="book">📖</div><h2>성경 문장 감별 도전</h2><p class="muted">총 5문제 · 문제마다 4지 선다<br>각 문제에서 성경에 없는 문장 하나를 선택하세요.</p><button id="startBtn" class="btn">퀴즈 시작하기 →</button></section>
-<section id="game" class="panel hide" aria-live="polite"><div class="meta"><span id="progress">문제 1 / 5</span><span id="scoreLive">점수 0점</span></div><div class="bar"><span id="bar"></span></div><div class="q-label">다음 중 성경에 없는 문장은?</div><h2 class="q-title">틀린 구절을 하나 고르세요.</h2><p class="q-sub">정답은 한 개뿐이에요.</p><div id="options" class="options"></div><div id="feedback" class="feedback hide"></div><div class="nextrow"><button id="next" class="btn hide">다음 문제 →</button></div></section>
-<section id="result" class="panel result hide"><div class="eyebrow">QUIZ COMPLETE</div><div id="finalScore" class="bigscore">0/5</div><h2 id="resultTitle">감별 완료!</h2><p id="resultDesc" class="muted"></p><div class="stats"><div class="stat"><b id="correctCount">0</b><span>맞힌 문제</span></div><div class="stat"><b id="wrongCount">0</b><span>틀린 문제</span></div></div><button id="again" class="btn">다시 도전하기 ↻</button> <button id="share" class="btn light">결과 공유하기</button></section>
-<p class="note">※ 퀴즈용으로 구성한 콘텐츠이며 신앙 수준을 평가하는 검사는 아닙니다. 성경 구절은 한국어 번역본에 따라 표현이 다를 수 있습니다. 공개 전에 교회에서 사용하는 번역본 기준으로 구절과 출처를 검수하는 것을 권장합니다.</p><div class="footer">말씀일까? · 한국어 성경 퀴즈</div></div>
+:root{
+  --bg:#fff;--ink:#111827;--ink-2:#374151;--ink-3:#6b7280;
+  --line:#e5e7eb;--line-2:#d1d5db;--wash:#f3f4f6;
+  --pri:#3b5bfd;--pri-edge:#2541d8;--pri-soft:#eef1ff;--pri-ink:#2338c4;
+  --ok:#0e8241;--ok-edge:#0a6332;--ok-soft:#e6f6ec;--ok-ink:#0a5a2e;
+  --no:#d42f36;--no-edge:#a5222a;--no-soft:#fdeced;--no-ink:#9c1c24;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --bar-h:96px;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:72px;scroll-padding-bottom:calc(var(--bar-h) + 16px);scrollbar-color:var(--line-2) transparent;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;word-break:keep-all;overflow-wrap:anywhere}
+::selection{background:var(--pri-soft);color:var(--pri-ink)}
+:focus-visible{outline:3px solid var(--pri);outline-offset:3px;border-radius:12px}
+button{font:inherit;color:inherit;cursor:pointer}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;flex:none}
+[hidden]{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+h1:focus,h2:focus{outline:none}
+
+.app{width:min(600px,100%);margin:0 auto;padding:0 20px calc(var(--bar-h) + 24px)}
+.top{display:flex;align-items:center;gap:14px;height:64px}
+.mark{font-size:19px;font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+.mark span{color:var(--pri)}
+.icon-btn{display:grid;place-items:center;width:40px;height:40px;margin-left:-10px;border:0;border-radius:12px;background:none;color:var(--ink-3)}
+.icon-btn:hover{background:var(--wash);color:var(--ink)}
+.icon-btn svg.i{width:24px;height:24px}
+
+/* 시작 */
+.intro h1{margin:28px 0 14px;font-size:clamp(32px,9vw,42px);line-height:1.18;font-weight:800;letter-spacing:-.035em;text-wrap:balance}
+.intro .lede{margin:0;font-size:17px;color:var(--ink-2);line-height:1.65}
+.example{margin:32px 0 0}
+.example figcaption{margin-bottom:10px;font-size:14px;font-weight:700;color:var(--ink-3)}
+.facts{display:flex;flex-wrap:wrap;gap:6px 0;margin:28px 0 0;padding:0;list-style:none;font-size:15px;font-weight:600;color:var(--ink-2)}
+.facts li+li::before{content:"";display:inline-block;width:3px;height:3px;margin:0 10px 3px;border-radius:50%;background:var(--line-2)}
+.fine{margin:40px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:13px;line-height:1.7;color:var(--ink-3)}
+.fine p{margin:0 0 6px}
+
+/* 문제 */
+#game .top{position:sticky;top:0;z-index:4;background:var(--bg)}
+.progress{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.progress i{height:10px;border-radius:6px;background:var(--line);transition:background-color .3s var(--ease)}
+.outcome{max-width:260px;margin:22px 0 0}
+.outcome i{transition-delay:calc(var(--n) * 110ms + 120ms)}
+.progress i.now{background:var(--pri)}
+.progress i.ok{background:var(--ok)}
+.progress i.no{background:var(--no)}
+.count{min-width:36px;text-align:right;font-size:15px;font-weight:700;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.ask{margin:20px 0 4px;font-size:24px;line-height:1.35;font-weight:800;letter-spacing:-.03em;outline:none}
+.ask-sub{margin:0 0 22px;font-size:15px;color:var(--ink-3)}
+.opts{display:grid;gap:12px}
+
+/* 보기 타일: 아래 4px 두께가 눌리는 깊이 */
+.opt{display:flex;align-items:flex-start;gap:14px;width:100%;margin:0;padding:14px 16px 13px;text-align:left;background:#fff;border:2px solid var(--line);border-bottom-width:4px;border-radius:16px;transition:background-color .15s,border-color .15s,transform .08s}
+@media (hover:hover) and (pointer:fine){button.opt:not([aria-pressed="true"]):not(:disabled):hover{background:#fafbff;border-color:var(--line-2)}}
+button.opt:active:not(:disabled){transform:translateY(2px);border-bottom-width:2px;margin-bottom:2px}
+.opt:disabled{cursor:default}
+.opt .key{display:grid;place-items:center;flex:0 0 30px;height:30px;margin-top:1px;border:2px solid var(--line);border-radius:9px;font-size:14px;font-weight:700;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.opt .key svg.i{width:16px;height:16px;stroke-width:3}
+.opt .txt{flex:1;font-size:17px;line-height:1.55;font-weight:600;letter-spacing:-.01em}
+.opt .ref{display:block;margin-top:6px;font-size:14px;font-weight:600;color:var(--ink-3)}
+.opt[aria-pressed="true"]{background:var(--pri-soft);border-color:var(--pri)}
+.opt[aria-pressed="true"] .key{border-color:var(--pri);color:var(--pri)}
+.opt.is-fake{background:var(--ok-soft);border-color:var(--ok)}
+.opt.is-fake .key{border-color:var(--ok);background:var(--ok);color:#fff}
+.opt.is-fake .ref{color:var(--ok-ink)}
+.opt.is-miss{background:var(--no-soft);border-color:var(--no)}
+.opt.is-miss .key{border-color:var(--no);background:var(--no);color:#fff}
+.opt.is-miss .ref{color:var(--no-ink)}
+.opt.is-rest{border-color:var(--line)}
+.opt.is-rest .txt{color:var(--ink-2)}
+
+/* 결과 */
+.score{margin:24px 0 0;font-size:64px;line-height:1;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.score small{font-size:28px;color:var(--ink-3);letter-spacing:-.02em}
+.result h1{margin:16px 0 8px;font-size:28px;line-height:1.3;font-weight:800;letter-spacing:-.03em}
+.result .lede{margin:0;font-size:16px;color:var(--ink-2);line-height:1.65}
+.review{margin:36px 0 0}
+.review-sub{margin:0 0 6px;font-size:15px;color:var(--ink-3)}
+.review h2{margin:0 0 4px;font-size:18px;font-weight:800;letter-spacing:-.02em}
+.review ol{margin:0;padding:0;list-style:none}
+.review li{display:grid;grid-template-columns:32px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.review li:last-child{border-bottom:0}
+.badge{display:grid;place-items:center;width:28px;height:28px;margin-top:1px;border-radius:50%;color:#fff}
+.badge svg.i{width:15px;height:15px;stroke-width:3}
+.badge.ok{background:var(--ok)}.badge.no{background:var(--no)}
+.review .fake{margin:2px 0 0;font-size:16px;font-weight:600;line-height:1.55}
+.review .note,.review .mine{margin:6px 0 0;font-size:14px;line-height:1.6;color:var(--ink-3)}
+.review .mine{color:var(--ink-2)}
+.review .mine b{font-weight:700;color:var(--no-ink)}
+
+/* 하단 고정 바와 피드백 시트 */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;background:#fff;border-top:2px solid var(--line)}
+.bar-in{width:min(600px,100%);margin:0 auto;padding:16px 20px calc(16px + env(safe-area-inset-bottom))}
+.bar.ok{background:var(--ok-soft);border-top-color:transparent}
+.bar.no{background:var(--no-soft);border-top-color:transparent}
+.bar.ok,.bar.no{animation:rise .38s var(--ease)}
+@keyframes rise{from{transform:translateY(40%);opacity:.4}}
+.verdict{display:flex;gap:12px;align-items:center;margin:2px 0 8px}
+.verdict .badge{width:34px;height:34px;margin:0}
+.verdict .badge svg.i{width:18px;height:18px}
+.verdict h2{margin:0;font-size:21px;font-weight:800;letter-spacing:-.02em}
+.bar.ok h2{color:var(--ok-ink)}.bar.no h2{color:var(--no-ink)}
+.why{margin:0 0 14px;font-size:15px;line-height:1.6}
+.bar.ok .why{color:var(--ok-ink)}.bar.no .why{color:var(--no-ink)}
+.why p{margin:0 0 4px}
+.why b{font-weight:800;color:inherit}
+.row{display:flex;gap:10px}
+
+/* 버튼: 보기 타일과 같은 눌림 */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;flex:1;width:100%;min-height:54px;margin:0;padding:0 20px;border:0;border-bottom:4px solid var(--pri-edge);border-radius:16px;background:var(--pri);color:#fff;font-size:17px;font-weight:800;letter-spacing:-.01em;transition:transform .08s,background-color .15s}
+.btn:hover:not(:disabled){background:#4a68ff}
+.btn:active:not(:disabled){transform:translateY(2px);border-bottom-width:2px;margin-bottom:2px}
+.btn:disabled{background:var(--line);border-bottom-color:var(--line-2);color:var(--ink-3);cursor:not-allowed}
+.btn.ok{background:var(--ok);border-bottom-color:var(--ok-edge)}
+.btn.ok:hover{background:#109049}
+.btn.no{background:var(--no);border-bottom-color:var(--no-edge)}
+.btn.no:hover{background:#de3a41}
+.btn.ghost{background:#fff;color:var(--ink);border:2px solid var(--line);border-bottom-width:4px}
+.btn.ghost:hover{background:var(--wash)}
+
+.toast{position:fixed;left:50%;bottom:calc(var(--bar-h) + 14px);z-index:6;transform:translateX(-50%);padding:11px 16px;border-radius:12px;background:var(--ink);color:#fff;font-size:15px;font-weight:600;white-space:nowrap;box-shadow:0 6px 20px rgba(17,24,39,.18);animation:pop .3s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translate(-50%,8px)}}
+
+@media (max-width:360px){
+  .app{padding-left:16px;padding-right:16px}
+  .bar-in{padding-left:16px;padding-right:16px}
+  .opt{gap:12px;padding:12px 13px 11px}
+  .opt .txt{font-size:16px}
+  .ask{font-size:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<main class="app">
+  <section id="start" class="intro">
+    <header class="top"><div class="mark">말씀일까<span>?</span></div></header>
+    <h1 id="introTitle" tabindex="-1">틀린 구절<br>하나를 찾아라</h1>
+    <p class="lede">네 문장 중 성경에 실제로 없는 문장은 단 하나예요. 유명한 성경 구절 세 개 사이에 숨은 가짜 문장을 골라내 보세요.</p>
+    <figure class="example">
+      <figcaption>이런 문장이 섞여 있어요</figcaption>
+      <div class="opt is-fake">
+        <span class="key" aria-hidden="true"><svg class="i" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <span class="txt">하나님은 스스로 돕는 자를 도우시느니라<span class="ref">성경에 없는 문장 · 서양 격언이에요</span></span>
+      </div>
+    </figure>
+    <ul class="facts"><li>5문제</li><li>문제마다 4지선다</li><li>개역개정 기준</li></ul>
+    <div class="fine">
+      <p>퀴즈용으로 만든 콘텐츠이며 신앙 수준을 평가하는 검사가 아니에요.</p>
+      <p>진짜 구절은 모두 대한성서공회 개역개정 본문과 대조했고, 가짜 문장은 퀴즈용 창작이에요.</p>
+      <p>성경 본문: 성경전서 개역개정판 ⓒ 대한성서공회</p>
+    </div>
+  </section>
+
+  <section id="game" hidden>
+    <header class="top">
+      <button class="icon-btn" type="button" data-action="quit" aria-label="그만하고 처음으로"><svg class="i" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <div class="progress" id="progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <span class="count" id="count"></span>
+    </header>
+    <h2 class="ask" id="ask" tabindex="-1">성경에 없는 문장을 고르세요</h2>
+    <p class="ask-sub">네 문장 중 하나만 성경에 없어요.</p>
+    <div class="opts" id="opts"></div>
+  </section>
+
+  <section id="result" class="result" hidden>
+    <header class="top"><div class="mark">말씀일까<span>?</span></div></header>
+    <p class="score" id="score" aria-hidden="true"></p>
+    <div class="progress outcome" id="outcome" aria-hidden="true"><i style="--n:0"></i><i style="--n:1"></i><i style="--n:2"></i><i style="--n:3"></i><i style="--n:4"></i></div>
+    <h1 id="resultTitle" tabindex="-1"></h1>
+    <p class="lede" id="resultDesc"></p>
+    <div class="review">
+      <h2>문제 다시 보기</h2>
+      <p class="review-sub">각 문제에 숨어 있던, 성경에 없는 문장이에요.</p>
+      <ol id="review"></ol>
+    </div>
+  </section>
+</main>
+
+<div class="bar" id="bar"><div class="bar-in" id="barIn" aria-live="polite"></div></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
 <script>
-const pool=[{"text": "악을 악으로, 욕을 욕으로 갚지 말고 도리어 복을 빌라", "isBible": true, "reference": "베드로전서 3:9"}, {"text": "내가 문이니 누구든지 나로 말미암아 들어가면 구원을 받고", "isBible": true, "reference": "요한복음 10:9"}, {"text": "철이 철을 날카롭게 하는 것 같이", "isBible": true, "reference": "잠언 27:17"}, {"text": "너희는 먼저 그의 나라와 그의 의를 구하라", "isBible": true, "reference": "마태복음 6:33"}, {"text": "여호와는 나의 목자시니 내게 부족함이 없으리로다", "isBible": true, "reference": "시편 23:1"}, {"text": "무엇이든지 남에게 대접을 받고자 하는 대로 너희도 남을 대접하라", "isBible": true, "reference": "마태복음 7:12"}, {"text": "눈물을 흘리며 씨를 뿌리는 자는 기쁨으로 거두리로다", "isBible": true, "reference": "시편 126:5"}, {"text": "하나님은 가장 강한 자에게 가장 큰 시험을 주신다", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "진실한 사람은 언제나 세상에서 인정받으리라", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "주는 그리스도시요 살아 계신 하나님의 아들이시니이다", "isBible": true, "reference": "마태복음 16:16"}, {"text": "나는 선한 목자라", "isBible": true, "reference": "요한복음 10:11"}, {"text": "애통하는 자는 복이 있나니", "isBible": true, "reference": "마태복음 5:4"}, {"text": "내가 곧 길이요 진리요 생명이니", "isBible": true, "reference": "요한복음 14:6"}, {"text": "사랑은 모든 것을 참으며 모든 것을 믿으며", "isBible": true, "reference": "고린도전서 13:7"}, {"text": "하나님은 사랑이심이라", "isBible": true, "reference": "요한일서 4:8"}, {"text": "너희 원수를 사랑하며 너희를 박해하는 자를 위하여 기도하라", "isBible": true, "reference": "마태복음 5:44"}, {"text": "하나님은 스스로 돕는 자를 도우시느니라", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "너희가 믿음이 있고 의심하지 아니하면", "isBible": true, "reference": "마태복음 21:21"}, {"text": "각각 그 마음에 정한 대로 할 것이요", "isBible": true, "reference": "고린도후서 9:7"}, {"text": "네가 먼저 웃으면 하늘도 너를 향해 웃으리라", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "너희는 가만히 있어 내가 하나님 됨을 알지어다", "isBible": true, "reference": "시편 46:10"}, {"text": "작은 꿈을 꾸는 자는 작은 은혜를 받으리라", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "하나님은 새벽에 일어나는 자의 기도를 먼저 들으신다", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "선한 싸움을 싸우고 나의 달려갈 길을 마치고", "isBible": true, "reference": "디모데후서 4:7"}, {"text": "유순한 대답은 분노를 쉬게 하여도", "isBible": true, "reference": "잠언 15:1"}, {"text": "너는 마음을 다하여 여호와를 신뢰하고", "isBible": true, "reference": "잠언 3:5"}, {"text": "너희 염려를 다 주께 맡기라", "isBible": true, "reference": "베드로전서 5:7"}, {"text": "내가 너를 떠나지 아니하며 버리지 아니하리니", "isBible": true, "reference": "히브리서 13:5"}, {"text": "심령이 가난한 자는 복이 있나니", "isBible": true, "reference": "마태복음 5:3"}, {"text": "서로 인자하게 하며 불쌍히 여기며", "isBible": true, "reference": "에베소서 4:32"}, {"text": "항상 기뻐하라", "isBible": true, "reference": "데살로니가전서 5:16"}, {"text": "내가 주께 감사하옴은 나를 지으심이 심히 기묘하심이라", "isBible": true, "reference": "시편 139:14"}, {"text": "여호와는 나의 빛이요 나의 구원이시니", "isBible": true, "reference": "시편 27:1"}, {"text": "새 계명을 너희에게 주노니 서로 사랑하라", "isBible": true, "reference": "요한복음 13:34"}, {"text": "네가 가진 믿음의 크기가 네 통장의 크기를 결정하리라", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "너희는 가서 모든 민족을 제자로 삼아", "isBible": true, "reference": "마태복음 28:19"}, {"text": "평안을 너희에게 끼치노니 곧 나의 평안을 너희에게 주노라", "isBible": true, "reference": "요한복음 14:27"}, {"text": "네 보물 있는 그 곳에는 네 마음도 있느니라", "isBible": true, "reference": "마태복음 6:21"}, {"text": "네가 의심하지 않으면 네 모든 소원은 이루어지리라", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "여호와를 의뢰하라 그리하면 네 길을 지도하시리라", "isBible": true, "reference": "잠언 3:5-6"}, {"text": "진리를 알지니 진리가 너희를 자유롭게 하리라", "isBible": true, "reference": "요한복음 8:32"}, {"text": "사랑은 오래 참고 사랑은 온유하며", "isBible": true, "reference": "고린도전서 13:4"}, {"text": "사람이 마음으로 자기의 길을 계획할지라도", "isBible": true, "reference": "잠언 16:9"}, {"text": "믿음은 바라는 것들의 실상이요 보이지 않는 것들의 증거니", "isBible": true, "reference": "히브리서 11:1"}, {"text": "사람이 떡으로만 살 것이 아니요", "isBible": true, "reference": "마태복음 4:4"}, {"text": "너희가 내 안에 거하고 내 말이 너희 안에 거하면", "isBible": true, "reference": "요한복음 15:7"}, {"text": "우리가 알거니와 하나님을 사랑하는 자", "isBible": true, "reference": "로마서 8:28"}, {"text": "마음이 청결한 자는 복이 있나니", "isBible": true, "reference": "마태복음 5:8"}, {"text": "교만은 패망의 선봉이요", "isBible": true, "reference": "잠언 16:18"}, {"text": "인자가 온 것은 잃어버린 자를 찾아 구원하려 함이니라", "isBible": true, "reference": "누가복음 19:10"}, {"text": "감사하는 자에게는 슬픔이 찾아오지 아니하리라", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "내가 산을 향하여 눈을 들리라 나의 도움이 어디서 올까", "isBible": true, "reference": "시편 121:1"}, {"text": "태초에 하나님이 천지를 창조하시니라", "isBible": true, "reference": "창세기 1:1"}, {"text": "모든 만남은 네가 받을 복의 순서를 정한다", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "항상 기뻐하라 내가 다시 말하노니 기뻐하라", "isBible": true, "reference": "빌립보서 4:4"}, {"text": "구하라 그리하면 너희에게 주실 것이요", "isBible": true, "reference": "마태복음 7:7"}, {"text": "무릇 사람이 할 수 없는 것을 하나님은 하실 수 있느니라", "isBible": true, "reference": "누가복음 18:27"}, {"text": "기도의 횟수가 많을수록 응답은 빨라지리라", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "죄의 삯은 사망이요", "isBible": true, "reference": "로마서 6:23"}, {"text": "하나님이 세상을 이처럼 사랑하사", "isBible": true, "reference": "요한복음 3:16"}, {"text": "네가 오늘 심은 친절은 내일의 기적이 되리라", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "주의 인자하심이 생명보다 나으므로", "isBible": true, "reference": "시편 63:3"}, {"text": "비판을 받지 아니하려거든 비판하지 말라", "isBible": true, "reference": "마태복음 7:1"}, {"text": "오직 성령의 열매는 사랑과 희락과 화평과", "isBible": true, "reference": "갈라디아서 5:22"}, {"text": "너희는 마음에 근심하지 말라", "isBible": true, "reference": "요한복음 14:1"}, {"text": "주의 말씀은 내 발에 등이요 내 길에 빛이니이다", "isBible": true, "reference": "시편 119:105"}, {"text": "하나님이 우리에게 주신 것은 두려워하는 마음이 아니요", "isBible": true, "reference": "디모데후서 1:7"}, {"text": "대답하기를 부드럽게 하면 분노가 쉬어지느니라", "isBible": true, "reference": "잠언 15:1"}, {"text": "하나님은 모든 문을 닫으신 뒤 반드시 더 큰 문을 여신다", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "너희 중에 지혜가 부족하거든 모든 사람에게 후히 주시고", "isBible": true, "reference": "야고보서 1:5"}, {"text": "태초에 말씀이 계시니라", "isBible": true, "reference": "요한복음 1:1"}, {"text": "네 이웃을 네 자신 같이 사랑하라", "isBible": true, "reference": "마태복음 22:39"}, {"text": "아무 것도 염려하지 말고", "isBible": true, "reference": "빌립보서 4:6"}, {"text": "사람이 마음으로 자기의 길을 계획할지라도 그 걸음을 인도하시는 이는 여호와시니라", "isBible": true, "reference": "잠언 16:9"}, {"text": "복을 받은 자는 반드시 남보다 높은 자리에 서리라", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "하나님은 우리의 피난처시요 힘이시니", "isBible": true, "reference": "시편 46:1"}, {"text": "행함이 없는 믿음은 그 자체가 죽은 것이라", "isBible": true, "reference": "야고보서 2:17"}, {"text": "하나님은 네가 감당할 수 있는 꿈만 허락하신다", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "네가 가진 것을 나누면 네 창고가 일곱 배로 차리라", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "쉬지 말고 기도하라", "isBible": true, "reference": "데살로니가전서 5:17"}, {"text": "너희는 세상의 빛이라", "isBible": true, "reference": "마태복음 5:14"}, {"text": "우리가 사랑함은 그가 먼저 우리를 사랑하셨음이라", "isBible": true, "reference": "요한일서 4:19"}, {"text": "믿음이 큰 자는 결코 눈물을 흘리지 아니하리라", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "내게 능력 주시는 자 안에서 내가 모든 것을 할 수 있느니라", "isBible": true, "reference": "빌립보서 4:13"}, {"text": "지혜로운 자는 결코 질문하지 아니한다", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "그런즉 믿음, 소망, 사랑, 이 세 가지는 항상 있을 것인데", "isBible": true, "reference": "고린도전서 13:13"}, {"text": "너희는 듣기는 속히 하고 말하기는 더디 하며", "isBible": true, "reference": "야고보서 1:19"}, {"text": "온유한 자는 복이 있나니", "isBible": true, "reference": "마태복음 5:5"}, {"text": "모든 사람이 죄를 범하였으매", "isBible": true, "reference": "로마서 3:23"}, {"text": "네가 먼저 길을 만들면 하나님이 그 길을 넓히시리라", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "의인은 믿음으로 말미암아 살리라", "isBible": true, "reference": "로마서 1:17"}, {"text": "너희는 마음에 근심하지 말라 하나님을 믿으니 또 나를 믿으라", "isBible": true, "reference": "요한복음 14:1"}, {"text": "너희는 세상의 소금이니", "isBible": true, "reference": "마태복음 5:13"}, {"text": "네가 완벽해지는 날 하나님은 너를 사용하시리라", "isBible": false, "reference": "성경에 없는 문장"}, {"text": "범사에 감사하라", "isBible": true, "reference": "데살로니가전서 5:18"}, {"text": "여호와를 경외하는 것이 지식의 근본이거늘", "isBible": true, "reference": "잠언 1:7"}, {"text": "모든 일을 원망과 시비가 없이 하라", "isBible": true, "reference": "빌립보서 2:14"}, {"text": "마음에는 원이로되 육신이 약하도다", "isBible": true, "reference": "마태복음 26:41"}, {"text": "여호와는 나의 힘이요 나의 방패시니", "isBible": true, "reference": "시편 28:7"}, {"text": "좁은 문으로 들어가라", "isBible": true, "reference": "마태복음 7:13"}];let rounds=[],round=0,score=0,locked=false,missed=[];
+const POOL=[{"t":"악을 악으로, 욕을 욕으로 갚지 말고 도리어 복을 빌라","r":"베드로전서 3:9"},{"t":"내가 문이니 누구든지 나로 말미암아 들어가면 구원을 받고","r":"요한복음 10:9"},{"t":"철이 철을 날카롭게 하는 것 같이","r":"잠언 27:17"},{"t":"너희는 먼저 그의 나라와 그의 의를 구하라","r":"마태복음 6:33"},{"t":"여호와는 나의 목자시니 내게 부족함이 없으리로다","r":"시편 23:1"},{"t":"무엇이든지 남에게 대접을 받고자 하는 대로 너희도 남을 대접하라","r":"마태복음 7:12"},{"t":"눈물을 흘리며 씨를 뿌리는 자는 기쁨으로 거두리로다","r":"시편 126:5"},{"t":"하나님은 가장 강한 자에게 가장 큰 시험을 주신다","n":"실제 말씀은 반대예요. “하나님은 미쁘사 너희가 감당하지 못할 시험 당함을 허락하지 아니하시고” (고린도전서 10:13)"},{"t":"진실한 사람은 언제나 세상에서 인정받으리라"},{"t":"주는 그리스도시요 살아 계신 하나님의 아들이시니이다","r":"마태복음 16:16"},{"t":"나는 선한 목자라","r":"요한복음 10:11"},{"t":"애통하는 자는 복이 있나니","r":"마태복음 5:4"},{"t":"내가 곧 길이요 진리요 생명이니","r":"요한복음 14:6"},{"t":"모든 것을 참으며 모든 것을 믿으며 모든 것을 바라며 모든 것을 견디느니라","r":"고린도전서 13:7"},{"t":"하나님은 사랑이심이라","r":"요한일서 4:8"},{"t":"너희 원수를 사랑하며 너희를 박해하는 자를 위하여 기도하라","r":"마태복음 5:44"},{"t":"하나님은 스스로 돕는 자를 도우시느니라","n":"성경이 아니라 서양 격언이에요. 벤저민 프랭클린의 책력으로 널리 퍼졌어요."},{"t":"너희가 믿음이 있고 의심하지 아니하면","r":"마태복음 21:21"},{"t":"각각 그 마음에 정한 대로 할 것이요","r":"고린도후서 9:7"},{"t":"네가 먼저 웃으면 하늘도 너를 향해 웃으리라"},{"t":"너희는 가만히 있어 내가 하나님 됨을 알지어다","r":"시편 46:10"},{"t":"작은 꿈을 꾸는 자는 작은 은혜를 받으리라"},{"t":"하나님은 새벽에 일어나는 자의 기도를 먼저 들으신다"},{"t":"선한 싸움을 싸우고 나의 달려갈 길을 마치고","r":"디모데후서 4:7"},{"t":"유순한 대답은 분노를 쉬게 하여도","r":"잠언 15:1"},{"t":"너는 마음을 다하여 여호와를 신뢰하고","r":"잠언 3:5"},{"t":"너희 염려를 다 주께 맡기라","r":"베드로전서 5:7"},{"t":"내가 너를 떠나지 아니하며 버리지 아니하리니","r":"여호수아 1:5"},{"t":"심령이 가난한 자는 복이 있나니","r":"마태복음 5:3"},{"t":"서로 친절하게 하며 불쌍히 여기며","r":"에베소서 4:32"},{"t":"항상 기뻐하라","r":"데살로니가전서 5:16"},{"t":"내가 주께 감사하옴은 나를 지으심이 심히 기묘하심이라","r":"시편 139:14"},{"t":"여호와는 나의 빛이요 나의 구원이시니","r":"시편 27:1"},{"t":"새 계명을 너희에게 주노니 서로 사랑하라","r":"요한복음 13:34"},{"t":"네가 가진 믿음의 크기가 네 통장의 크기를 결정하리라"},{"t":"너희는 가서 모든 민족을 제자로 삼아","r":"마태복음 28:19"},{"t":"평안을 너희에게 끼치노니 곧 나의 평안을 너희에게 주노라","r":"요한복음 14:27"},{"t":"네 보물 있는 그 곳에는 네 마음도 있느니라","r":"마태복음 6:21"},{"t":"네가 의심하지 않으면 네 모든 소원은 이루어지리라","n":"비슷한 실제 말씀: “또 여호와를 기뻐하라 그가 네 마음의 소원을 네게 이루어 주시리로다” (시편 37:4)"},{"t":"너는 범사에 그를 인정하라 그리하면 네 길을 지도하시리라","r":"잠언 3:6"},{"t":"진리를 알지니 진리가 너희를 자유롭게 하리라","r":"요한복음 8:32"},{"t":"사랑은 오래 참고 사랑은 온유하며","r":"고린도전서 13:4"},{"t":"믿음은 바라는 것들의 실상이요 보이지 않는 것들의 증거니","r":"히브리서 11:1"},{"t":"사람이 떡으로만 살 것이 아니요","r":"마태복음 4:4"},{"t":"너희가 내 안에 거하고 내 말이 너희 안에 거하면","r":"요한복음 15:7"},{"t":"우리가 알거니와 하나님을 사랑하는 자","r":"로마서 8:28"},{"t":"마음이 청결한 자는 복이 있나니","r":"마태복음 5:8"},{"t":"교만은 패망의 선봉이요","r":"잠언 16:18"},{"t":"인자가 온 것은 잃어버린 자를 찾아 구원하려 함이니라","r":"누가복음 19:10"},{"t":"감사하는 자에게는 슬픔이 찾아오지 아니하리라"},{"t":"내가 산을 향하여 눈을 들리라 나의 도움이 어디서 올까","r":"시편 121:1"},{"t":"태초에 하나님이 천지를 창조하시니라","r":"창세기 1:1"},{"t":"모든 만남은 네가 받을 복의 순서를 정한다"},{"t":"항상 기뻐하라 내가 다시 말하노니 기뻐하라","r":"빌립보서 4:4"},{"t":"구하라 그리하면 너희에게 주실 것이요","r":"마태복음 7:7"},{"t":"무릇 사람이 할 수 없는 것을 하나님은 하실 수 있느니라","r":"누가복음 18:27"},{"t":"기도의 횟수가 많을수록 응답은 빨라지리라"},{"t":"죄의 삯은 사망이요","r":"로마서 6:23"},{"t":"하나님이 세상을 이처럼 사랑하사","r":"요한복음 3:16"},{"t":"네가 오늘 심은 친절은 내일의 기적이 되리라"},{"t":"주의 인자하심이 생명보다 나으므로","r":"시편 63:3"},{"t":"비판을 받지 아니하려거든 비판하지 말라","r":"마태복음 7:1"},{"t":"오직 성령의 열매는 사랑과 희락과 화평과","r":"갈라디아서 5:22"},{"t":"주의 말씀은 내 발에 등이요 내 길에 빛이니이다","r":"시편 119:105"},{"t":"하나님이 우리에게 주신 것은 두려워하는 마음이 아니요","r":"디모데후서 1:7"},{"t":"하나님은 모든 문을 닫으신 뒤 반드시 더 큰 문을 여신다"},{"t":"너희 중에 누구든지 지혜가 부족하거든 모든 사람에게 후히 주시고 꾸짖지 아니하시는 하나님께 구하라","r":"야고보서 1:5"},{"t":"태초에 말씀이 계시니라","r":"요한복음 1:1"},{"t":"네 이웃을 네 자신 같이 사랑하라","r":"마태복음 22:39"},{"t":"아무 것도 염려하지 말고","r":"빌립보서 4:6"},{"t":"사람이 마음으로 자기의 길을 계획할지라도 그의 걸음을 인도하시는 이는 여호와시니라","r":"잠언 16:9"},{"t":"복을 받은 자는 반드시 남보다 높은 자리에 서리라","n":"비슷한 실제 말씀: “여호와께서 너를 머리가 되고 꼬리가 되지 않게 하시며” (신명기 28:13)"},{"t":"하나님은 우리의 피난처시요 힘이시니","r":"시편 46:1"},{"t":"행함이 없는 믿음은 그 자체가 죽은 것이라","r":"야고보서 2:17"},{"t":"하나님은 네가 감당할 수 있는 꿈만 허락하신다","n":"'꿈'이 아니라 '시험'이에요: “너희가 감당하지 못할 시험 당함을 허락하지 아니하시고” (고린도전서 10:13)"},{"t":"네가 가진 것을 나누면 네 창고가 일곱 배로 차리라","n":"비슷한 실제 말씀: “그리하면 네 창고가 가득히 차고 네 포도즙 틀에 새 포도즙이 넘치리라” (잠언 3:10)"},{"t":"쉬지 말고 기도하라","r":"데살로니가전서 5:17"},{"t":"너희는 세상의 빛이라","r":"마태복음 5:14"},{"t":"우리가 사랑함은 그가 먼저 우리를 사랑하셨음이라","r":"요한일서 4:19"},{"t":"믿음이 큰 자는 결코 눈물을 흘리지 아니하리라"},{"t":"내게 능력 주시는 자 안에서 내가 모든 것을 할 수 있느니라","r":"빌립보서 4:13"},{"t":"지혜로운 자는 결코 질문하지 아니한다"},{"t":"그런즉 믿음, 소망, 사랑, 이 세 가지는 항상 있을 것인데","r":"고린도전서 13:13"},{"t":"사람마다 듣기는 속히 하고 말하기는 더디 하며 성내기도 더디 하라","r":"야고보서 1:19"},{"t":"온유한 자는 복이 있나니","r":"마태복음 5:5"},{"t":"모든 사람이 죄를 범하였으매","r":"로마서 3:23"},{"t":"네가 먼저 길을 만들면 하나님이 그 길을 넓히시리라"},{"t":"의인은 믿음으로 말미암아 살리라","r":"로마서 1:17"},{"t":"너희는 마음에 근심하지 말라 하나님을 믿으니 또 나를 믿으라","r":"요한복음 14:1"},{"t":"너희는 세상의 소금이니","r":"마태복음 5:13"},{"t":"네가 완벽해지는 날 하나님은 너를 사용하시리라"},{"t":"범사에 감사하라","r":"데살로니가전서 5:18"},{"t":"여호와를 경외하는 것이 지식의 근본이거늘","r":"잠언 1:7"},{"t":"모든 일을 원망과 시비가 없이 하라","r":"빌립보서 2:14"},{"t":"마음에는 원이로되 육신이 약하도다","r":"마태복음 26:41"},{"t":"여호와는 나의 힘과 나의 방패이시니","r":"시편 28:7"},{"t":"좁은 문으로 들어가라","r":"마태복음 7:13"}];
+const EXAMPLE='하나님은 스스로 돕는 자를 도우시느니라';
+const ROUNDS=5;
+const ICON={
+  check:'<svg class="i" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+  x:'<svg class="i" aria-hidden="true" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg>',
+  share:'<svg class="i" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 15V3.5M7.5 8L12 3.5 16.5 8M5 12.5V19a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19v-6.5"/></svg>',
+  retry:'<svg class="i" aria-hidden="true" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4v4.5H9"/></svg>'
+};
+let rounds=[],round=0,picked=-1,checked=false,results=[];
 const $=id=>document.getElementById(id);
-function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function makeRounds(){const truths=shuffle(pool.filter(q=>q.isBible).slice()),fakes=shuffle(pool.filter(q=>!q.isBible).slice());rounds=[];for(let i=0;i<5;i++){let fake=fakes[i];let opts=[fake,...truths.splice(0,3)].map((q,j)=>({...q}));rounds.push({fake,options:shuffle(opts)})} }
-function start(){makeRounds();round=0;score=0;missed=[];$('start').classList.add('hide');$('result').classList.add('hide');$('game').classList.remove('hide');render()}
-function render(){locked=false;let r=rounds[round];$('progress').textContent=`문제 ${round+1} / 5`;$('scoreLive').textContent=`점수 ${score}점`;$('bar').style.width=`${round/5*100}%`;$('feedback').classList.add('hide');$('feedback').innerHTML='';$('next').classList.add('hide');$('options').innerHTML='';r.options.forEach((q,i)=>{let b=document.createElement('button');b.className='opt';b.innerHTML=`<span class="letter">${'ABCD'[i]}</span><span>${q.text}</span>`;b.addEventListener('click',()=>answer(i,q,b));$('options').appendChild(b)})}
-function answer(i,q,button){if(locked)return;locked=true;let r=rounds[round],correct=!q.isBible;if(correct){score++}else{missed.push({round:round+1,selected:q.text,answer:r.fake.text})}
-[...$('options').children].forEach((b,j)=>{b.disabled=true;let item=r.options[j];if(!item.isBible)b.classList.add('correct');if(j===i&&!correct)b.classList.add('wrong')});
-$('scoreLive').textContent=`점수 ${score}점`;$('bar').style.width=`${(round+1)/5*100}%`;
-$('feedback').innerHTML=`<strong>${correct?'정답이에요! 🎉':'아쉬워요! 정답은 표시된 문장이에요.'}</strong><div>가짜 문장: <b>“${r.fake.text}”</b></div><p>${correct?'잘 찾았어요!':`선택한 문장은 성경에 실제로 나오는 구절이에요.`} 실제 구절의 출처를 함께 확인해 보세요.</p><p>참고: 가짜 문장은 성경의 직접 인용이 아닌 퀴즈용 창작 문장입니다.</p>`;$('feedback').classList.remove('hide');$('next').textContent=round===4?'결과 보기 →':'다음 문제 →';$('next').classList.remove('hide')}
-function finish(){$('game').classList.add('hide');$('result').classList.remove('hide');$('finalScore').textContent=`${score}/5`;$('correctCount').textContent=score;$('wrongCount').textContent=5-score;let title=score===5?'완벽한 말씀 탐정! 🏆':score>=3?'훌륭해요, 말씀 탐정! 🔎':score>=1?'조금 더 살펴봐요 🌱':'다시 도전해 봐요 📖';$('resultTitle').textContent=title;$('resultDesc').textContent=score===5?'5문제를 모두 맞혔어요! 성경 구절 감별 실력이 대단해요.':`5문제 중 ${score}문제를 맞혔어요. 헷갈리는 문장은 출처를 찾아보며 익혀 보세요.`}
-function next(){if(!locked)return;if(round<4){round++;render()}else finish()}
-$('startBtn').addEventListener('click',start);$('next').addEventListener('click',next);$('again').addEventListener('click',start);
-$('share').addEventListener('click',async()=>{let t=`말씀일까? 틀린 구절 찾기에서 ${score}/5점을 받았어요! 너도 도전해 봐 📖`;try{if(navigator.share)await navigator.share({title:'말씀일까?',text:t});else{await navigator.clipboard.writeText(t);alert('결과 문구를 복사했어요!')}}catch(e){}});
-</script></body></html>
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function makeRounds(){
+  const truths=shuffle(POOL.filter(q=>q.r)),fakes=shuffle(POOL.filter(q=>!q.r&&q.t!==EXAMPLE));
+  rounds=[];
+  for(let i=0;i<ROUNDS;i++)rounds.push({fake:fakes[i],options:shuffle([fakes[i],...truths.splice(0,3)])});
+}
+function show(id){for(const s of['start','game','result'])$(s).hidden=s!==id;window.scrollTo(0,0)}
+function setBar(html,tone){
+  const bar=$('bar');
+  bar.className='bar'+(tone?' '+tone:'');
+  $('barIn').innerHTML=html;
+  document.documentElement.style.setProperty('--bar-h',bar.offsetHeight+'px');
+}
+
+function start(){makeRounds();round=0;results=[];show('game');render()}
+function render(){
+  const r=rounds[round];
+  picked=-1;checked=false;
+  $('count').textContent=`${round+1}/${ROUNDS}`;
+  [...$('progress').children].forEach((el,i)=>{el.className=i<round?(results[i].ok?'ok':'no'):i===round?'now':''});
+  $('opts').innerHTML=r.options.map((q,i)=>`<button class="opt" type="button" aria-pressed="false" data-i="${i}"><span class="key" aria-hidden="true">${i+1}</span><span class="txt">${esc(q.t)}</span></button>`).join('');
+  setBar('<button class="btn" type="button" data-action="check" disabled>확인하기</button>');
+  if(round>0)$('ask').focus({preventScroll:true});
+}
+function pick(i){
+  if(checked)return;
+  picked=i;
+  [...$('opts').children].forEach((b,j)=>b.setAttribute('aria-pressed',String(j===i)));
+  $('barIn').querySelector('[data-action="check"]').disabled=false;
+}
+function check(){
+  if(checked||picked<0)return;
+  checked=true;
+  const r=rounds[round],choice=r.options[picked],ok=!choice.r;
+  results.push({fake:r.fake,choice,ok});
+  [...$('opts').children].forEach((b,j)=>{
+    const q=r.options[j];
+    b.disabled=true;b.removeAttribute('aria-pressed');
+    b.classList.add(!q.r?'is-fake':j===picked?'is-miss':'is-rest');
+    b.querySelector('.key').innerHTML=!q.r?ICON.check:j===picked?ICON.x:j+1;
+    b.querySelector('.txt').insertAdjacentHTML('beforeend',`<span class="ref">${q.r?esc(q.r):'성경에 없는 문장'}</span>`);
+  });
+  $('progress').children[round].className=ok?'ok':'no';
+  const last=round===ROUNDS-1,note=r.fake.n?`<p>${esc(r.fake.n)}</p>`:'';
+  const why=ok
+    ?(note||'<p>퀴즈용으로 지은 문장이에요. 나머지 세 줄은 모두 실제 말씀이에요.</p>')
+    :`<p>고른 문장은 <b>${esc(choice.r)}</b> 말씀이에요.</p><p>성경에 없는 문장: <b>“${esc(r.fake.t)}”</b></p>${note}`;
+  setBar(`<div class="verdict"><span class="badge ${ok?'ok':'no'}" aria-hidden="true">${ok?ICON.check:ICON.x}</span><h2>${ok?'정답이에요!':'아쉬워요'}</h2></div><div class="why">${why}</div><button class="btn ${ok?'ok':'no'}" type="button" data-action="next">${last?'결과 보기':'계속하기'}</button>`,ok?'ok':'no');
+  $('barIn').querySelector('[data-action="next"]').focus({preventScroll:true});
+  $('opts').querySelector('.is-fake').scrollIntoView({block:'nearest'});
+}
+function next(){if(!checked)return;if(round<ROUNDS-1){round++;render();window.scrollTo(0,0)}else finish()}
+
+function finish(){
+  const score=results.filter(x=>x.ok).length;
+  $('score').innerHTML=`${score}<small> / ${ROUNDS}</small>`;
+  const title=score===ROUNDS?'완벽한 말씀 탐정!':score>=3?'훌륭해요, 말씀 탐정!':score>=1?'조금 더 살펴봐요':'다시 도전해 봐요';
+  $('resultTitle').innerHTML=`<span class="sr-only">${ROUNDS}문제 중 ${score}문제 정답. </span>${title}`;
+  $('resultDesc').textContent=score===ROUNDS?'5문제를 모두 맞혔어요! 성경 구절 감별 실력이 대단해요.':`5문제 중 ${score}문제를 맞혔어요. 헷갈린 문장은 아래에서 출처와 함께 다시 확인해 보세요.`;
+  $('review').innerHTML=results.map((x,i)=>`<li><span class="badge ${x.ok?'ok':'no'}">${x.ok?ICON.check:ICON.x}<span class="sr-only">${i+1}번 ${x.ok?'맞힘':'놓침'}, 성경에 없는 문장:</span></span><div><p class="fake">${esc(x.fake.t)}</p>${x.fake.n?`<p class="note">${esc(x.fake.n)}</p>`:''}${x.ok?'':`<p class="mine"><b>내가 고른 문장은 실제 말씀이에요.</b> “${esc(x.choice.t)}” (${esc(x.choice.r)})</p>`}</div></li>`).join('');
+  const segs=[...$('outcome').children];
+  segs.forEach(el=>el.className='');
+  show('result');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>segs.forEach((el,i)=>el.className=results[i].ok?'ok':'no')));
+  $('resultTitle').focus({preventScroll:true});
+  setBar(`<div class="row"><button class="btn ghost" type="button" data-action="start">${ICON.retry}다시 도전</button><button class="btn" type="button" data-action="share">${ICON.share}결과 공유</button></div>`);
+}
+
+let toastTimer;
+function toast(msg){const t=$('toast');t.textContent=msg;t.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.hidden=true,2400)}
+async function share(){
+  const score=results.filter(x=>x.ok).length,url=location.href.split('#')[0];
+  const text=`말씀일까? 틀린 구절 찾기에서 ${score}/${ROUNDS}점을 받았어요! 너도 도전해 봐`;
+  if(navigator.share){try{await navigator.share({title:'말씀일까?',text,url})}catch(e){}return}
+  try{await navigator.clipboard.writeText(`${text}\n${url}`);toast('결과 문구와 링크를 복사했어요')}
+  catch(e){toast('복사하지 못했어요. 주소창의 링크를 공유해 주세요')}
+}
+
+const ACTIONS={start,check,next,share,quit(){show('start');setBar(START_BAR);$('introTitle').focus({preventScroll:true})}};
+const START_BAR='<button class="btn" type="button" data-action="start">시작하기</button>';
+document.addEventListener('click',e=>{
+  const a=e.target.closest('[data-action]');
+  if(a&&!a.disabled){ACTIONS[a.dataset.action]();return}
+  const o=e.target.closest('#opts .opt');
+  if(o)pick(+o.dataset.i);
+});
+document.addEventListener('keydown',e=>{
+  if($('game').hidden||e.metaKey||e.ctrlKey||e.altKey)return;
+  if(!checked&&/^[1-4]$/.test(e.key)){pick(+e.key-1);return}
+  if(e.key==='Enter'&&!e.target.closest('button')){e.preventDefault();checked?next():check()}
+});
+addEventListener('resize',()=>document.documentElement.style.setProperty('--bar-h',$('bar').offsetHeight+'px'));
+setBar(START_BAR);
+</script>
+</body>
+</html>
