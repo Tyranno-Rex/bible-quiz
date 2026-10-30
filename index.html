@@ -47,7 +47,7 @@ h1:focus,h2:focus{outline:none}
 .icon-btn svg.i{width:24px;height:24px}
 
 /* 시작 */
-.cover{display:block;width:100%;height:auto;margin:4px 0 0;border-radius:20px;background:#1f1a14}
+.cover{display:block;width:100%;height:auto;margin:4px 0 0;border-radius:16px;background:var(--ink)}
 .intro h1{margin:32px 0 14px;font-size:clamp(32px,9vw,42px);line-height:1.18;font-weight:800;letter-spacing:-.035em;text-wrap:balance}
 .intro .lede{margin:0;font-size:17px;color:var(--ink-2);line-height:1.65}
 .example{margin:32px 0 0}
@@ -137,9 +137,9 @@ button.opt:active:not(:disabled){transform:translateY(2px);border-bottom-width:2
 .btn.ghost{background:#fff;color:var(--ink);border:2px solid var(--line);border-bottom-width:4px}
 
 @media (hover:hover) and (pointer:fine){
-  .btn:hover:not(:disabled){background:#2f4ff0}
-  .btn.ok:hover:not(:disabled){background:#0b7339}
-  .btn.no:hover:not(:disabled){background:#c4282f}
+  .btn:hover:not(:disabled){background:var(--pri-edge)}
+  .btn.ok:hover:not(:disabled){background:var(--ok-edge)}
+  .btn.no:hover:not(:disabled){background:var(--no-edge)}
   .btn.ghost:hover:not(:disabled){background:var(--wash)}
 }
 .toast{position:fixed;left:50%;bottom:calc(var(--bar-h) + 14px);z-index:6;transform:translateX(-50%);padding:11px 16px;border-radius:12px;background:var(--ink);color:#fff;font-size:15px;font-weight:600;white-space:nowrap;box-shadow:0 6px 20px rgba(17,24,39,.18);animation:pop .3s var(--ease)}
@@ -150,7 +150,7 @@ button.opt:active:not(:disabled){transform:translateY(2px);border-bottom-width:2
   .bar-in{padding-left:16px;padding-right:16px}
   .opt{gap:12px;padding:12px 13px 11px}
   .opt .txt{font-size:16px}
-  .ask{font-size:22px}
+  .ask{font-size:21px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
