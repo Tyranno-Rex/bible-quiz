@@ -47,7 +47,8 @@ h1:focus,h2:focus{outline:none}
 .icon-btn svg.i{width:24px;height:24px}
 
 /* 시작 */
-.intro h1{margin:28px 0 14px;font-size:clamp(32px,9vw,42px);line-height:1.18;font-weight:800;letter-spacing:-.035em;text-wrap:balance}
+.cover{display:block;width:100%;height:auto;margin:4px 0 0;border-radius:20px;background:#1f1a14}
+.intro h1{margin:32px 0 14px;font-size:clamp(32px,9vw,42px);line-height:1.18;font-weight:800;letter-spacing:-.035em;text-wrap:balance}
 .intro .lede{margin:0;font-size:17px;color:var(--ink-2);line-height:1.65}
 .example{margin:32px 0 0}
 .example figcaption{margin-bottom:10px;font-size:14px;font-weight:700;color:var(--ink-3)}
@@ -158,6 +159,7 @@ button.opt:active:not(:disabled){transform:translateY(2px);border-bottom-width:2
 <main class="app">
   <section id="start" class="intro">
     <header class="top"><div class="mark">말씀일까<span>?</span></div></header>
+    <img class="cover" src="start-page.webp" width="780" height="1080" fetchpriority="high" alt="착한 말씀핑 듀오 찾기. 초록 부엉이 두 마리가 성경을 들고 있어요. A 듀오: 오늘도 성경 1장이라도 읽어야지! 믿음이 쑥쑥 자라는 기분이야! B 듀오: …어? 나 지금 좀 바빠서… 내일 할게 ㅎㅎ">
     <h1 id="introTitle" tabindex="-1">틀린 구절<br>하나를 찾아라</h1>
     <p class="lede">네 문장 중 성경에 실제로 없는 문장은 단 하나예요. 유명한 성경 구절 세 개 사이에 숨은 가짜 문장을 골라내 보세요.</p>
     <figure class="example">
